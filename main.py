@@ -72,7 +72,6 @@ black_images = [black_pawn, black_queen, black_king, black_knight, black_rook, b
 small_black_images = [black_pawn_small, black_queen_small, black_king_small, black_knight_small,
                       black_rook_small, black_bishop_small]
 piece_list = ['pawn', 'queen', 'king', 'knight', 'rook', 'bishop']
-# check variables/ flashing counter
 counter = 0
 winner = ''
 game_over = False
@@ -96,7 +95,7 @@ def draw_board():
         for i in range(9):
             pygame.draw.line(screen, 'black', (0, 100 * i), (800, 100 * i), 2)
             pygame.draw.line(screen, 'black', (100 * i, 0), (100 * i, 800), 2)
-        screen.blit(medium_font.render('Cancel', True, 'black'), (810, 830))
+        screen.blit(medium_font.render('Cancel', True, 'red'), (810, 830))
 
 
 # draw pieces onto board
@@ -295,7 +294,13 @@ def check_valid_moves():
     valid_options = options_list[selection]
     return valid_options
 
-
+def draw_valid(moves):
+    if turn_step < 2:
+        color = 'red'
+    else:
+        color = 'blue'
+    for i in range(len(moves)):
+        pygame.draw.circle(screen, color, (moves[i][0] * 100 + 50, moves[i][1] * 100 + 50), 5)
 
 
 # draw a flashing square around king if in check
@@ -323,7 +328,7 @@ def draw_check():
 def draw_game_over():
     pygame.draw.rect(screen, 'black', [200, 200, 400, 70])
     screen.blit(font.render(f'{winner} hat dominiert!', True, 'white'), (210, 210))
-    screen.blit(font.render(f'Press ENTER to Restart!', True, 'white'), (210, 240))
+    screen.blit(font.render(f'ENTER', True, 'white'), (210, 240))
 
 
 # main game loop
@@ -342,6 +347,7 @@ while run:
     draw_check()
     if selection != 100:
         valid_moves = check_valid_moves()
+        draw_valid(valid_moves)
     # input handling
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
