@@ -1,0 +1,47 @@
+Konzeption für ein Schach Spiel
+
+Zielsetzung
+
+Das Ziel des Spiels ist es, alle gegnerischen Figuren zu schlagen. Die Spieler können dies tun, indem sie ihre eigenen Figuren auf die gegnerischen Figuren ziehen.
+
+Spielfeld
+
+Das Spielfeld ist ein 8x8-Raster. Auf jedem Feld kann sich nur eine Figur befinden.
+
+Figuren
+
+Jeder Spieler hat folgende Figuren:
+
+ 1 König
+ 1 Dame
+ 2 Türme
+ 2 Springer
+ 2 Läufer
+ 8 Bauern
+
+Die Figuren bewegen sich wie folgt:
+
+ König: in jede Richtung um ein Feld
+ Dame: in jede Richtung beliebig weit
+ Turm: horizontal oder vertikal beliebig weit
+ Springer: in Form eines L
+ Läufer: diagonal beliebig weit
+ Bauer: nach vorne ein Feld, und nach zwei Feldern, wenn er noch nicht gezogen hat. Er kann auch gegnerische Figuren schlagen, die sich direkt vor ihm befinden.
+
+Spielablauf
+
+Die Spieler spielen abwechselnd. Der Spieler, der an der Reihe ist, muss eine seiner Figuren bewegen. Eine Figur kann nur auf ein freies Feld oder auf ein Feld, auf dem sich eine gegnerische Figur befindet, gezogen werden. Wenn eine Figur eine gegnerische Figur schlägt, wird die gegnerische Figur vom Spielfeld entfernt.
+
+Spielende
+
+Das Spiel endet, wenn ein Spieler es geschafft hat dem Gegner alle Validen Züge wegzunehmen oder bei Abbruch des Spiels.
+
+Neue Funktionen:
+
+Das Spiel könnte durch folgende Verbesserungen noch interessanter werden:
+
+* **Zusätzliche Regeln:** Bsp. 960 Schach oder Blitz Schach.
+* **Online-Modus: Es könnte ein Online-Modus hinzugefügt werden, in dem zwei Spieler gegeneinander online spielen können.
+** Anzeigen der Validen Moves: Die Validen Züge könnten wie auf chess.com auf dem Board angezeigt werden.
+** Chess Bot: Ein Programm welches offline Züge berechnet und gegen dich Spielt, mgl. Variable Schwierigkeit.
+
