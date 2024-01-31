@@ -95,7 +95,8 @@ def draw_board():
         for i in range(9):
             pygame.draw.line(screen, 'black', (0, 100 * i), (800, 100 * i), 2)
             pygame.draw.line(screen, 'black', (100 * i, 0), (100 * i, 800), 2)
-        screen.blit(medium_font.render('Cancel', True, 'red'), (810, 830))
+        pygame.draw.rect(screen, 'white', [810, 830, 80, 30], 2, border_radius=5)
+        screen.blit(medium_font.render('Cancel', True, 'red'), (815, 835))
 
 
 # draw pieces onto board
@@ -296,14 +297,13 @@ def check_valid_moves():
 
 def draw_valid(moves):
     if turn_step < 2:
-        color = 'red'
+        color = 'black'
     else:
-        color = 'blue'
+        color = 'black'
     for i in range(len(moves)):
-        pygame.draw.circle(screen, color, (moves[i][0] * 100 + 50, moves[i][1] * 100 + 50), 5)
+        pygame.draw.ellipse(screen, color, (moves[i][0] * 100 + 45, moves[i][1] * 100 + 45, 10, 20))
 
 
-# draw a flashing square around king if in check
 def draw_check():
     if turn_step < 2:
         if 'king' in white_pieces:
